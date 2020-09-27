@@ -76,5 +76,15 @@ with open(csvpath) as csvfile:
     print ("the greatest decrease = $ " + str(great_decrease) + " on " + date_max_decrease)
     print ("----------------------------------")
 
-    
-
+    Pybank_analysis = r"C:\Users\merse\Documents\python_challenge\PyPoll\analysis"
+    # os.path.join("web_final.csv")
+    with open ('Pybank_analysis.txt', 'w') as text:
+        text.write("                               ")
+        text.write("Financial Analysis")
+        text.write("-------------------------------")
+        text.write("total months = " + str(count))
+        text.write("total_profit/loss = $ " + str(tot_value)) 
+        text.write("Averange monthly change = $ " + str(average_change))
+        text.write("Increase in profit = $ " + str(great_increase) + " on " + date_max_increase)
+        text.write("the greatest decrease = $ " + str(great_decrease) + " on " + date_max_decrease)
+        text.write("-------------------------------")
