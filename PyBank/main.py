@@ -6,7 +6,7 @@ import os
 import csv
 
 csvpath = os.path.join( 'Resources', 'budget_data.csv')
-# r'C:\Users\merse\Documents\python_challenge\PyBank\Resources\budget_data.csv'
+
 
 tot_p = []
 date = []
@@ -14,7 +14,6 @@ monthly_change_list = []
 previous_value =0
 count = 0
 tot_value = 0
-
 change = 0
 average_change = 0
 sum_change = 0
@@ -28,13 +27,12 @@ date_max_decrease = 0
 with open(csvpath) as csvfile:
 
     # CSV reader specifies delimiter and variable that holds contents
-    csvreader = csv.reader(csvfile, delimiter=',')
+    csvreader = csv.reader(csvfile, delimiter =',')
 
-    print(csvreader)
-
-    # Read the header row first (skip this step if there is now header)
+    # Read the header row first 
     csv_header = next(csvreader)
-    # print(f"CSV Header: {csv_header}")
+    
+    # tell python to start from the second row to make the very first value (Jan data) the "previous value"
     Jan_data = next (csvreader)
     count = count+1 
     tot_value = tot_value + int(Jan_data[1])
@@ -80,10 +78,11 @@ with open(csvpath) as csvfile:
     print ("The Greatest Decrease = $ " + str(great_decrease) + " on " + date_max_decrease)
     print ("----------------------------------")
 
-    Pybank_analysis = os.path.join('analysis')
-    #r"C:\Users\merse\Documents\python_challenge\PyPoll\analysis"
-    # 
-    with open ('Pybank_analysis.txt', 'w') as text:
+     # go to analysis folder, create a text file and print the same result there 
+    PyBank_analysis = os.path.join("analysis", "PyBank_analysis.txt")
+   
+   
+    with open (PyBank_analysis , "w") as text:
         text.write("                               \n")
         text.write("Financial Analysis\n")
         text.write("-------------------------------\n")
